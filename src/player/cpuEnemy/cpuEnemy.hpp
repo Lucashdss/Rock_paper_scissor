@@ -1,5 +1,5 @@
-#pragma once
 #include "player.hpp"
+#pragma once
 
 class cpuEnemy : public player{
     public:
