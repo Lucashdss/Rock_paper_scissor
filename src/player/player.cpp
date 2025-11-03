@@ -13,3 +13,7 @@ void player::setMoveIndex(int index){
 int player::getMoveIndex() const{
     return MoveIndex;
 }  
+
+void player::setMoveIndexToZero(){
+    MoveIndex = 0;
+}

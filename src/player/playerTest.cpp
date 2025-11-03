@@ -7,4 +7,15 @@ TEST_CASE("player basic test", "[player]") {
     SECTION("stard class gives a 0 value"){
         REQUIRE(player.getMoveIndex() == 0);
     }
+
+    SECTION("set and get move index"){
+        player.setMoveIndex(2);
+        REQUIRE(player.getMoveIndex() == 2);
+    }
+
+    SECTION("set move index to zero"){
+        player.setMoveIndex(5);
+        player.setMoveIndexToZero();
+        REQUIRE(player.getMoveIndex() == 0);
+    }
 }
