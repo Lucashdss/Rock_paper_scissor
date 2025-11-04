@@ -246,6 +246,15 @@ RockPaperScissors_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 RockPaperScissors_SOURCE_DIR:STATIC=/Users/lucas/Documents/GitHub/Rock_paper_scissor
 
+//The directory containing a CMake configuration file for SFML.
+SFML_DIR:PATH=/usr/local/lib/cmake/SFML
+
+//Path to a file.
+SFML_DOC_DIR:PATH=/usr/local/share/doc/SFML
+
+//The directory containing a CMake configuration file for sfml.
+sfml_DIR:PATH=/usr/local/lib/cmake/SFML
+
 
 ########################
 # INTERNAL cache entries

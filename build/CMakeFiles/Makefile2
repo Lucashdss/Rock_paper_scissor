@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /Users/lucas/Documents/GitHub/Rock_paper_scissor/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/playerTest.dir/all
+all: CMakeFiles/generalTest.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/playerTest.dir/codegen
+codegen: CMakeFiles/generalTest.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/playerTest.dir/clean
+clean: CMakeFiles/generalTest.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/playerTest.dir
+# Target rules for target CMakeFiles/generalTest.dir
 
 # All Build rule for target.
-CMakeFiles/playerTest.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucas/Documents/GitHub/Rock_paper_scissor/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target playerTest"
-.PHONY : CMakeFiles/playerTest.dir/all
+CMakeFiles/generalTest.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucas/Documents/GitHub/Rock_paper_scissor/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target generalTest"
+.PHONY : CMakeFiles/generalTest.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/playerTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lucas/Documents/GitHub/Rock_paper_scissor/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/playerTest.dir/all
+CMakeFiles/generalTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lucas/Documents/GitHub/Rock_paper_scissor/build/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/generalTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lucas/Documents/GitHub/Rock_paper_scissor/build/CMakeFiles 0
-.PHONY : CMakeFiles/playerTest.dir/rule
+.PHONY : CMakeFiles/generalTest.dir/rule
 
 # Convenience name for target.
-playerTest: CMakeFiles/playerTest.dir/rule
-.PHONY : playerTest
+generalTest: CMakeFiles/generalTest.dir/rule
+.PHONY : generalTest
 
 # codegen rule for target.
-CMakeFiles/playerTest.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucas/Documents/GitHub/Rock_paper_scissor/build/CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target playerTest"
-.PHONY : CMakeFiles/playerTest.dir/codegen
+CMakeFiles/generalTest.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/lucas/Documents/GitHub/Rock_paper_scissor/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Finished codegen for target generalTest"
+.PHONY : CMakeFiles/generalTest.dir/codegen
 
 # clean rule for target.
-CMakeFiles/playerTest.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/clean
-.PHONY : CMakeFiles/playerTest.dir/clean
+CMakeFiles/generalTest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/clean
+.PHONY : CMakeFiles/generalTest.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

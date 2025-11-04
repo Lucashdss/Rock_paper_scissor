@@ -117,24 +117,72 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named playerTest
+# Target rules for targets named generalTest
 
 # Build rule for target.
-playerTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 playerTest
-.PHONY : playerTest
+generalTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 generalTest
+.PHONY : generalTest
 
 # fast build rule for target.
-playerTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/build
-.PHONY : playerTest/fast
+generalTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/build
+.PHONY : generalTest/fast
+
+src/animation/animation.o: src/animation/animation.cpp.o
+.PHONY : src/animation/animation.o
+
+# target to build an object file
+src/animation/animation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/animation/animation.cpp.o
+.PHONY : src/animation/animation.cpp.o
+
+src/animation/animation.i: src/animation/animation.cpp.i
+.PHONY : src/animation/animation.i
+
+# target to preprocess a source file
+src/animation/animation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/animation/animation.cpp.i
+.PHONY : src/animation/animation.cpp.i
+
+src/animation/animation.s: src/animation/animation.cpp.s
+.PHONY : src/animation/animation.s
+
+# target to generate assembly for a file
+src/animation/animation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/animation/animation.cpp.s
+.PHONY : src/animation/animation.cpp.s
+
+src/animation/animationTest.o: src/animation/animationTest.cpp.o
+.PHONY : src/animation/animationTest.o
+
+# target to build an object file
+src/animation/animationTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/animation/animationTest.cpp.o
+.PHONY : src/animation/animationTest.cpp.o
+
+src/animation/animationTest.i: src/animation/animationTest.cpp.i
+.PHONY : src/animation/animationTest.i
+
+# target to preprocess a source file
+src/animation/animationTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/animation/animationTest.cpp.i
+.PHONY : src/animation/animationTest.cpp.i
+
+src/animation/animationTest.s: src/animation/animationTest.cpp.s
+.PHONY : src/animation/animationTest.s
+
+# target to generate assembly for a file
+src/animation/animationTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/animation/animationTest.cpp.s
+.PHONY : src/animation/animationTest.cpp.s
 
 src/player/cpuEnemy/cpuEnemy.o: src/player/cpuEnemy/cpuEnemy.cpp.o
 .PHONY : src/player/cpuEnemy/cpuEnemy.o
 
 # target to build an object file
 src/player/cpuEnemy/cpuEnemy.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/cpuEnemy/cpuEnemy.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/cpuEnemy/cpuEnemy.cpp.o
 .PHONY : src/player/cpuEnemy/cpuEnemy.cpp.o
 
 src/player/cpuEnemy/cpuEnemy.i: src/player/cpuEnemy/cpuEnemy.cpp.i
@@ -142,7 +190,7 @@ src/player/cpuEnemy/cpuEnemy.i: src/player/cpuEnemy/cpuEnemy.cpp.i
 
 # target to preprocess a source file
 src/player/cpuEnemy/cpuEnemy.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/cpuEnemy/cpuEnemy.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/cpuEnemy/cpuEnemy.cpp.i
 .PHONY : src/player/cpuEnemy/cpuEnemy.cpp.i
 
 src/player/cpuEnemy/cpuEnemy.s: src/player/cpuEnemy/cpuEnemy.cpp.s
@@ -150,7 +198,7 @@ src/player/cpuEnemy/cpuEnemy.s: src/player/cpuEnemy/cpuEnemy.cpp.s
 
 # target to generate assembly for a file
 src/player/cpuEnemy/cpuEnemy.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/cpuEnemy/cpuEnemy.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/cpuEnemy/cpuEnemy.cpp.s
 .PHONY : src/player/cpuEnemy/cpuEnemy.cpp.s
 
 src/player/cpuEnemy/cpuEnemyTest.o: src/player/cpuEnemy/cpuEnemyTest.cpp.o
@@ -158,7 +206,7 @@ src/player/cpuEnemy/cpuEnemyTest.o: src/player/cpuEnemy/cpuEnemyTest.cpp.o
 
 # target to build an object file
 src/player/cpuEnemy/cpuEnemyTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/cpuEnemy/cpuEnemyTest.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/cpuEnemy/cpuEnemyTest.cpp.o
 .PHONY : src/player/cpuEnemy/cpuEnemyTest.cpp.o
 
 src/player/cpuEnemy/cpuEnemyTest.i: src/player/cpuEnemy/cpuEnemyTest.cpp.i
@@ -166,7 +214,7 @@ src/player/cpuEnemy/cpuEnemyTest.i: src/player/cpuEnemy/cpuEnemyTest.cpp.i
 
 # target to preprocess a source file
 src/player/cpuEnemy/cpuEnemyTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/cpuEnemy/cpuEnemyTest.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/cpuEnemy/cpuEnemyTest.cpp.i
 .PHONY : src/player/cpuEnemy/cpuEnemyTest.cpp.i
 
 src/player/cpuEnemy/cpuEnemyTest.s: src/player/cpuEnemy/cpuEnemyTest.cpp.s
@@ -174,7 +222,7 @@ src/player/cpuEnemy/cpuEnemyTest.s: src/player/cpuEnemy/cpuEnemyTest.cpp.s
 
 # target to generate assembly for a file
 src/player/cpuEnemy/cpuEnemyTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/cpuEnemy/cpuEnemyTest.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/cpuEnemy/cpuEnemyTest.cpp.s
 .PHONY : src/player/cpuEnemy/cpuEnemyTest.cpp.s
 
 src/player/player.o: src/player/player.cpp.o
@@ -182,7 +230,7 @@ src/player/player.o: src/player/player.cpp.o
 
 # target to build an object file
 src/player/player.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/player.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/player.cpp.o
 .PHONY : src/player/player.cpp.o
 
 src/player/player.i: src/player/player.cpp.i
@@ -190,7 +238,7 @@ src/player/player.i: src/player/player.cpp.i
 
 # target to preprocess a source file
 src/player/player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/player.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/player.cpp.i
 .PHONY : src/player/player.cpp.i
 
 src/player/player.s: src/player/player.cpp.s
@@ -198,7 +246,7 @@ src/player/player.s: src/player/player.cpp.s
 
 # target to generate assembly for a file
 src/player/player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/player.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/player.cpp.s
 .PHONY : src/player/player.cpp.s
 
 src/player/playerTest.o: src/player/playerTest.cpp.o
@@ -206,7 +254,7 @@ src/player/playerTest.o: src/player/playerTest.cpp.o
 
 # target to build an object file
 src/player/playerTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/playerTest.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/playerTest.cpp.o
 .PHONY : src/player/playerTest.cpp.o
 
 src/player/playerTest.i: src/player/playerTest.cpp.i
@@ -214,7 +262,7 @@ src/player/playerTest.i: src/player/playerTest.cpp.i
 
 # target to preprocess a source file
 src/player/playerTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/playerTest.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/playerTest.cpp.i
 .PHONY : src/player/playerTest.cpp.i
 
 src/player/playerTest.s: src/player/playerTest.cpp.s
@@ -222,7 +270,7 @@ src/player/playerTest.s: src/player/playerTest.cpp.s
 
 # target to generate assembly for a file
 src/player/playerTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/playerTest.dir/build.make CMakeFiles/playerTest.dir/src/player/playerTest.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generalTest.dir/build.make CMakeFiles/generalTest.dir/src/player/playerTest.cpp.s
 .PHONY : src/player/playerTest.cpp.s
 
 # Help Target
@@ -233,7 +281,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... playerTest"
+	@echo "... generalTest"
+	@echo "... src/animation/animation.o"
+	@echo "... src/animation/animation.i"
+	@echo "... src/animation/animation.s"
+	@echo "... src/animation/animationTest.o"
+	@echo "... src/animation/animationTest.i"
+	@echo "... src/animation/animationTest.s"
 	@echo "... src/player/cpuEnemy/cpuEnemy.o"
 	@echo "... src/player/cpuEnemy/cpuEnemy.i"
 	@echo "... src/player/cpuEnemy/cpuEnemy.s"
