@@ -15,7 +15,7 @@ TEST_CASE("cpu basic test", "[cpuEnemy]") {
     }
 
     SECTION("set move index to zero"){
-        cpu.setMoveIndex(5);
+        cpu.setMoveIndex(cpu.Paper);
         cpu.setMoveIndexToZero();
         REQUIRE(cpu.getMoveIndex() == 0);
     }

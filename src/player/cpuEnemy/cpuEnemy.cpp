@@ -13,10 +13,13 @@ int cpuEnemy::generateRandomMoveIndex(){
     std::uniform_int_distribution<> distr(1, 3);
 
     int randomIndex = distr(gen);
+    if (randomIndex != AllowedMoves::Rock || randomIndex != AllowedMoves::Paper || randomIndex != AllowedMoves::Scissors){
+        std::cerr << "Generated invalid move index: " << randomIndex << std::endl;
+    }
     return randomIndex;
 };
 
-void cpuEnemy::setMoveIndex(int index){
+void cpuEnemy::setMoveIndex(AllowedMoves index){
     RandomMoveIndex = index;
 }
 

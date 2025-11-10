@@ -6,7 +6,7 @@ class cpuEnemy : public player{
         cpuEnemy();
         virtual ~cpuEnemy();
         int generateRandomMoveIndex();
-        virtual void setMoveIndex(int index) override;
+        virtual void setMoveIndex(AllowedMoves index) override;
 
     private:
     int RandomMoveIndex;

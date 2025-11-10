@@ -4,11 +4,13 @@
 
 class Animation {
 private:
-    Texture2D texture;
+    Texture2D RockTexture;
+    Texture2D PaperTexture;
+    Texture2D ScissorsTexture;
 
 public:
-    Animation(const std::string& imagePath);
+    Animation();
     ~Animation();
-    Texture2D getTexture() const { return texture; }
+    Texture2D getTexture() const { return RockTexture, PaperTexture, ScissorsTexture; }
     
 };

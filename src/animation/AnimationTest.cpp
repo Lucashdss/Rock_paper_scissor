@@ -2,7 +2,12 @@
 #include "animation.hpp"
 
 TEST_CASE("animation basic test", "[animation]") {
-    Animation hands("/assets/paper.png");
+    Animation hands;
 
-    SECTION("initial position is (0,0)") {
+    SECTION("variables are initialized correctly") {
+        Texture2D rockTexture = hands.getTexture();
+        REQUIRE(rockTexture.id != 0); // Check if texture is loaded
+    }
+    {
+
     }

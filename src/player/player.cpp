@@ -6,7 +6,7 @@ player::player(): MoveIndex{0}{
 player::~player(){
 }
 
-void player::setMoveIndex(int index){
+void player::setMoveIndex(AllowedMoves index){
     MoveIndex = index;
 }
 

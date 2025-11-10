@@ -7,7 +7,7 @@ int main(){
     player testPlayer;
     cpuEnemy testcpu;
 
-    testPlayer.setMoveIndex(2);
+    testPlayer.setMoveIndex(testPlayer.Paper);
     std::cout << testPlayer.getMoveIndex(); 
 
     int RandomMove = testcpu.generateRandomMoveIndex();
