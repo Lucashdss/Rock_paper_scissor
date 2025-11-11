@@ -9,12 +9,12 @@ TEST_CASE("player basic test", "[player]") {
     }
 
     SECTION("set and get move index"){
-        player.setMoveIndex(player.Paper);
+        player.setMoveIndexToPaper();
         REQUIRE(player.getMoveIndex() == 2);
     }
 
     SECTION("set move index to zero"){
-        player.setMoveIndex(player.Paper);
+        player.setMoveIndexToRock();
         player.setMoveIndexToZero();
         REQUIRE(player.getMoveIndex() == 0);
     }

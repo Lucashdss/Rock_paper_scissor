@@ -17,6 +17,8 @@ class player{
         player();
         virtual ~player();
         int getMoveIndex() const;
-        virtual void setMoveIndex(AllowedMoves index);
+        void setMoveIndexToRock();
+        void setMoveIndexToPaper();
+        void setMoveIndexToScissors();
         void setMoveIndexToZero();
 };
