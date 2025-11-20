@@ -1,6 +1,7 @@
 ### C++ ###
-/.build
-/.vscode
+build/
+buildDebug/
+.vscode/
 # Prerequisites
 *.d
 

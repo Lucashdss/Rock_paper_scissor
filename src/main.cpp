@@ -1,16 +1,47 @@
 #include <iostream>
+#include <thread>
 #include "player/player.hpp"
-#include "cpuEnemy/cpuEnemy.hpp"
+#include "player/cpuEnemy/cpuEnemy.hpp"
+#include "animation/animation.hpp"
+#include "raylib.h"
 
-int main(){
+int *countDown = new int(4);
 
-    player testPlayer;
-    cpuEnemy testcpu;
+int main()
+{
+    InitWindow(800, 600, "My Game");
+    SetTargetFPS(60);
 
-    testPlayer.setMoveIndex(testPlayer.Paper);
-    std::cout << testPlayer.getMoveIndex(); 
+    Texture background = LoadTexture("assets/background.png");
+    std::unique_ptr<Animation> HandSigns = std::make_unique<Animation>();
 
-    int RandomMove = testcpu.generateRandomMoveIndex();
-    std::cout << "\nCPU Move Index: " << RandomMove;
+    while (!WindowShouldClose())
+    {
+        if (*countDown > 0)
+        {
+            std::this_thread::sleep_for(1000ms);
+            (*countDown)--;
+        }
+
+        BeginDrawing();
+        ClearBackground(BLACK);
+        DrawTexture(background, 0, 0, WHITE);
+
+        std::string CountDownText = std::to_string(*countDown);
+        int fontSize = 100;
+        int textWidth = MeasureText(CountDownText.c_str(), fontSize);
+
+        if (*countDown > 0)
+            DrawText(CountDownText.c_str(), (800 - textWidth) / 2, (600 - fontSize) / 2, fontSize, WHITE);
+        else if (*countDown == 0)
+        {
+            DrawText("Go!", (800 - textWidth) / 2, (600 - fontSize) / 2, fontSize, WHITE);
+            delete countDown;
+        }
+
+        EndDrawing();
+    };
+    UnloadTexture(background);
+    CloseWindow();
     return 0;
 }
