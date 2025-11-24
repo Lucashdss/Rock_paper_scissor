@@ -12,6 +12,7 @@ add_library(gameLib
     src/player/player.cpp
     src/player/cpuEnemy/cpuEnemy.cpp
     src/animation/animation.cpp
+    src/animation/animationEnemy.cpp
 )
 
 target_include_directories(gameLib PUBLIC

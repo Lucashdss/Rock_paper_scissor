@@ -7,14 +7,15 @@ using namespace std;
 class Animation
 {
 private:
-    Texture2D RockTexture;
-    Texture2D PaperTexture;
-    Texture2D ScissorsTexture;
-    bool fadeIn;
-
+    int AnimationFrame;
+    Image RockGifImage;
+    Image PaperGifImage;
+    Image ScissorsGifImage;
 public:
     Animation();
-    ~Animation();
-    std::vector<Texture2D> getTextures() const;
-    void DrawRockAnimation() const;
+    virtual ~Animation();
+    std::vector<Image>getTextures() const;
+    virtual Texture2D DrawRockAnimation() const;
+    virtual Texture2D DrawPaperAnimation() const;
+    virtual Texture2D DrawScissorsAnimation() const;  
 };

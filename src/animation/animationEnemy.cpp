@@ -1,31 +1,22 @@
 #include "raylib.h"
-#include "animation.hpp"
+#include "animationEnemy.hpp"
 #include <iostream>
 #include <vector>
 
-Animation::Animation(){
+AnimationEnemy::AnimationEnemy(): Animation(){
     int AnimationFrame = 0;
     RockGifImage = LoadImageAnim("assets/rock.gif", &AnimationFrame);
     PaperGifImage = LoadImageAnim("assets/paper.gif", &AnimationFrame);
     ScissorsGifImage = LoadImageAnim("assets/scissors.gif", &AnimationFrame);
 }
 
-Animation::~Animation() {
+AnimationEnemy::~AnimationEnemy() {
     UnloadImage(RockGifImage);
     UnloadImage(PaperGifImage);
     UnloadImage(ScissorsGifImage);
 }
 
-std::vector<Image>Animation::getTextures() const{
-    std::vector<Image> textures{
-        RockGifImage,
-        PaperGifImage,
-        ScissorsGifImage
-    };
-    return textures;
-}
-
-Texture2D Animation::DrawRockAnimation() const {
+Texture2D AnimationEnemy::DrawRockAnimation() const {
     static Texture2D RockTexture = LoadTextureFromImage(RockGifImage);
 
     const int AnimationFrame = 99;
@@ -60,7 +51,7 @@ Texture2D Animation::DrawRockAnimation() const {
     return RockTexture;
 }
 
-Texture2D Animation::DrawPaperAnimation() const {
+Texture2D AnimationEnemy::DrawPaperAnimation() const {
     static Texture2D PaperTexture = LoadTextureFromImage(PaperGifImage);
 
     const int AnimationFrame = 99;
@@ -95,7 +86,7 @@ Texture2D Animation::DrawPaperAnimation() const {
     return PaperTexture;
 }
 
-Texture2D Animation::DrawScissorsAnimation() const {
+Texture2D AnimationEnemy::DrawScissorsAnimation() const {
     static Texture2D ScissorsTexture = LoadTextureFromImage(ScissorsGifImage);
 
     const int AnimationFrame = 99;
