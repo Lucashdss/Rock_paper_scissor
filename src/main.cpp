@@ -20,32 +20,44 @@ int main()
 
     while (!WindowShouldClose())
     {
-        // if (countDown != nullptr && *countDown > 0)
-        // {
-        //     std::this_thread::sleep_for(1000ms);
-        //     (*countDown)--;
-        // }
+        if (countDown != nullptr && *countDown > 0)
+        {
+            std::this_thread::sleep_for(1000ms);
+            (*countDown)--;
+        }
+
+        std::string CountDownText = std::to_string(*countDown);
+        int fontSize = 100;
+        int textWidth = MeasureText(CountDownText.c_str(), fontSize);
 
         BeginDrawing();
         ClearBackground(BLACK);
         DrawTexture(background, 0, 0, WHITE);
 
-        // std::string CountDownText = std::to_string(*countDown);
-        // int fontSize = 100;
-        // int textWidth = MeasureText(CountDownText.c_str(), fontSize);
+        if (countDown != nullptr && *countDown > 0){
+            DrawText(CountDownText.c_str(), (800 - textWidth) / 2, (600 - fontSize) / 2, fontSize, WHITE);
+        }
+        else if (countDown != nullptr && *countDown == 0)
+        {
+            DrawText("Go!", (800 - textWidth) / 2, (600 - fontSize) / 2, fontSize, WHITE);
+            EndDrawing();
+            std::this_thread::sleep_for(1000ms);
+            countDown = nullptr;
+        }
 
-        // if (*countDown > 0)
-        //     DrawText(CountDownText.c_str(), (800 - textWidth) / 2, (600 - fontSize) / 2, fontSize, WHITE);
-        // else if (*countDown == 0)
-        // {
-        //     DrawText("Go!", (800 - textWidth) / 2, (600 - fontSize) / 2, fontSize, WHITE);
-        //     countDown = nullptr;
-        // }
-
-        DrawTexture(HandSigns->DrawPaperAnimation(), 200, 200, WHITE);
+        if (countDown == nullptr){
+            DrawTexturePro(HandSigns->DrawPaperAnimation(),
+                        HandSigns->sourceRec,
+                        HandSigns->destRec,
+                        {0,0},
+                        0.f,
+                        WHITE);
+            DrawTexture(HandSignsEnemy->DrawScissorsAnimation(), 200, 100, WHITE);
+        }
 
         EndDrawing();
     };
+
     delete countDown;
     UnloadTexture(background);
     CloseWindow();

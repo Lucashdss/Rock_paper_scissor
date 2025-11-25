@@ -12,6 +12,9 @@ private:
     Image PaperGifImage;
     Image ScissorsGifImage;
 public:
+    Rectangle sourceRec;
+    Rectangle destRec;
+
     Animation();
     virtual ~Animation();
     std::vector<Image>getTextures() const;

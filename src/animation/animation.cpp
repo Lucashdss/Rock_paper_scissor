@@ -8,6 +8,8 @@ Animation::Animation(){
     RockGifImage = LoadImageAnim("assets/rock.gif", &AnimationFrame);
     PaperGifImage = LoadImageAnim("assets/paper.gif", &AnimationFrame);
     ScissorsGifImage = LoadImageAnim("assets/scissors.gif", &AnimationFrame);
+    sourceRec = { 0.0f, 0.0f, (float)RockGifImage.width*(-1), (float)RockGifImage.height};
+    destRec = { 0.0f, 100.0f, (float)RockGifImage.width, (float)RockGifImage.height};
 }
 
 Animation::~Animation() {
