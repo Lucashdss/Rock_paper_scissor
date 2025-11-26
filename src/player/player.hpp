@@ -21,4 +21,5 @@ class player{
         void setMoveIndexToPaper();
         void setMoveIndexToScissors();
         void setMoveIndexToZero();
+        void playerInput();
 };

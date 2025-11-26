@@ -25,3 +25,23 @@ int player::getMoveIndex() const{
 void player::setMoveIndexToZero(){
     MoveIndex = 0;
 }
+
+void player::playerInput(){
+    std::string input;
+    
+    std::cout << "enter your move (rock, paper, scissors): ";
+    std::cin >> input;
+    
+    std::transform(input.begin(), input.end(), input.begin(), ::tolower);
+
+    if (input == "rock"){
+        setMoveIndexToRock();
+    } else if (input == "paper"){
+        setMoveIndexToPaper();
+    } else if (input == "scissors"){
+        setMoveIndexToScissors();
+    } else {
+        std::cout << "invalid move. please try again." << std::endl;
+        playerInput();
+    }
+}
