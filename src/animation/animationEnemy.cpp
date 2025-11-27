@@ -89,8 +89,8 @@ Texture2D AnimationEnemy::DrawPaperAnimation() const {
 Texture2D AnimationEnemy::DrawScissorsAnimation() const {
     static Texture2D ScissorsTexture = LoadTextureFromImage(ScissorsGifImage);
 
-    const int AnimationFrame = 99;
-    static int CurrentFrame = 20;
+    const int AnimationFrame = 78;
+    static int CurrentFrame = 0;
     const int FrameDelay = 2;
     static int FrameCounter = 0;
     static unsigned int NextFrameDataOffset = 0;

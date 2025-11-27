@@ -100,8 +100,8 @@ Texture2D Animation::DrawPaperAnimation() const {
 Texture2D Animation::DrawScissorsAnimation() const {
     static Texture2D ScissorsTexture = LoadTextureFromImage(ScissorsGifImage);
 
-    const int AnimationFrame = 99;
-    static int CurrentFrame = 20;
+    const int AnimationFrame = 78;
+    static int CurrentFrame = 0;
     const int FrameDelay = 2;
     static int FrameCounter = 0;
     static unsigned int NextFrameDataOffset = 0;
@@ -131,3 +131,30 @@ Texture2D Animation::DrawScissorsAnimation() const {
 
     return ScissorsTexture;
 }
+
+void Animation::DrawWinner(int winner) const{
+    int fontSizeWinner = 50;
+    std::string winnerText;
+    if (winner == 1){
+        winnerText = "Player Wins!";
+        int textWidth = MeasureText(winnerText.c_str(), fontSizeWinner);
+        DrawText(winnerText.c_str(), (800 - textWidth) / 2, 50, fontSizeWinner, GREEN);
+    }
+    else if (winner == 2){
+        winnerText = "Computer Wins!";
+        int textWidth = MeasureText(winnerText.c_str(), fontSizeWinner);
+        DrawText(winnerText.c_str(), (800 - textWidth) / 2, 50, fontSizeWinner, RED);
+    }
+    else{
+        winnerText = "It's a Tie!";
+        int textWidth = MeasureText(winnerText.c_str(), fontSizeWinner);
+        DrawText(winnerText.c_str(), (800 - textWidth) / 2, 50, fontSizeWinner, YELLOW);
+    }
+};
+
+void Animation::DrawTrophy() const{
+    Image TrophyImage = LoadImage("assets/trophy.png");
+    ImageResize(&TrophyImage, 150, 150);
+    Texture2D TrophyTexture = LoadTextureFromImage(TrophyImage);
+    DrawTexture(TrophyTexture, 350, 100, WHITE);
+};

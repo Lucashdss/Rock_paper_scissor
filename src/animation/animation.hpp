@@ -20,5 +20,8 @@ public:
     std::vector<Image>getTextures() const;
     virtual Texture2D DrawRockAnimation() const;
     virtual Texture2D DrawPaperAnimation() const;
-    virtual Texture2D DrawScissorsAnimation() const;  
+    virtual Texture2D DrawScissorsAnimation() const;
+    void DrawWinner(int winner) const;
+    void DrawTrophy() const;
+
 };

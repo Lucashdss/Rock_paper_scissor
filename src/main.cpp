@@ -47,7 +47,11 @@ int main()
         if(countDown == nullptr){
             drawPlayerMoveAnimation(playerMoveIndex, *HandSigns);
             drawEnemyMoveAnimation(EnemyMoveIndex, *HandSignsEnemy);
+            HandSigns->DrawWinner(CheckWhoWins(playerMoveIndex, EnemyMoveIndex));
+            HandSigns->DrawTrophy();
         }
+
+        // HandSigns->DrawWinner(CheckWhoWins(playerMoveIndex, EnemyMoveIndex));
 
         EndDrawing();
     };
