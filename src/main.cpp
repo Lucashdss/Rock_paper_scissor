@@ -12,13 +12,15 @@ void DrawCountDownText();
 void drawPlayerMoveAnimation(int &playerMoveIndex, Animation& HandSigns);
 void drawEnemyMoveAnimation(int &EnemyMoveIndex, AnimationEnemy& HandSignsEnemy);
 int CheckWhoWins(int &playerMoveIndex, int &EnemyMoveIndex);
+void PrintBlankSpaces(int lines);
 
 int *countDown = new int(4);
 std::string CountDownText;
+float CloseAfterSeconds{15.0f};
 
 int main()
 {
-    InitWindow(800, 600, "My Game");
+    InitWindow(800, 600, "Rock Paper Scissors - Raylib C++ Edition");
     SetTargetFPS(60);
 
     Texture background = LoadTexture("assets/background.png");
@@ -27,14 +29,17 @@ int main()
     std::unique_ptr<player> Player = std::make_unique<player>();
     std::unique_ptr<cpuEnemy> CpuEnemy = std::make_unique<cpuEnemy>();
 
+    PrintBlankSpaces(10);
     Player->playerInput();
     int playerMoveIndex = Player->getMoveIndex();
     int EnemyMoveIndex = CpuEnemy->generateRandomMoveIndex();
-    
-    CheckWhoWins(playerMoveIndex, EnemyMoveIndex);
 
     while (!WindowShouldClose())
     {
+        if (GetTime() >= CloseAfterSeconds) {
+            CloseWindow();   // close window
+        }
+
         MakeThreadSleepAndCountDown();
         updateCountDownText();
 
@@ -50,8 +55,6 @@ int main()
             HandSigns->DrawWinner(CheckWhoWins(playerMoveIndex, EnemyMoveIndex));
             HandSigns->DrawTrophy();
         }
-
-        // HandSigns->DrawWinner(CheckWhoWins(playerMoveIndex, EnemyMoveIndex));
 
         EndDrawing();
     };
@@ -148,3 +151,10 @@ int CheckWhoWins(int &player1, int &player2){
 
     return result;
 };
+
+void PrintBlankSpaces(int lines){
+    for (int i = 0; i < lines; i++){
+        std::cout << std::endl;
+    }
+};
+

@@ -49,12 +49,12 @@ Texture2D Animation::DrawRockAnimation() const {
         CurrentFrame++;
 
         if (CurrentFrame >= AnimationFrame) {
-            CurrentFrame = 20;
+            CurrentFrame = AnimationFrame;
         }
-
+        else{
         NextFrameDataOffset = RockGifImage.width * RockGifImage.height * 4 * CurrentFrame;
-
         UpdateTexture(RockTexture, ((unsigned char*)RockGifImage.data) + NextFrameDataOffset);
+        }
 
         FrameCounter = 0;
     }
@@ -84,12 +84,12 @@ Texture2D Animation::DrawPaperAnimation() const {
         CurrentFrame++;
 
         if (CurrentFrame >= AnimationFrame) {
-            CurrentFrame = 20;
+            CurrentFrame = AnimationFrame;
         }
-
+        else{
         NextFrameDataOffset = PaperGifImage.width * PaperGifImage.height * 4 * CurrentFrame;
-
         UpdateTexture(PaperTexture, ((unsigned char*)PaperGifImage.data) + NextFrameDataOffset);
+        }
 
         FrameCounter = 0;
     }
@@ -119,12 +119,12 @@ Texture2D Animation::DrawScissorsAnimation() const {
         CurrentFrame++;
 
         if (CurrentFrame >= AnimationFrame) {
-            CurrentFrame = 20;
+            CurrentFrame = AnimationFrame;
         }
-
+        else{
         NextFrameDataOffset = ScissorsGifImage.width * ScissorsGifImage.height * 4 * CurrentFrame;
-
         UpdateTexture(ScissorsTexture, ((unsigned char*)ScissorsGifImage.data) + NextFrameDataOffset);
+        }
 
         FrameCounter = 0;
     }
