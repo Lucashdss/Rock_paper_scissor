@@ -16,7 +16,7 @@ void PrintBlankSpaces(int lines);
 
 int *countDown = new int(4);
 std::string CountDownText;
-float CloseAfterSeconds{15.0f};
+int CountEachFrame{};
 
 int main()
 {
@@ -36,7 +36,7 @@ int main()
 
     while (!WindowShouldClose())
     {
-        if (GetTime() >= CloseAfterSeconds) {
+        if (CountEachFrame > 400) {
             CloseWindow();   // close window
         }
 
@@ -52,6 +52,10 @@ int main()
         if(countDown == nullptr){
             drawPlayerMoveAnimation(playerMoveIndex, *HandSigns);
             drawEnemyMoveAnimation(EnemyMoveIndex, *HandSignsEnemy);
+            CountEachFrame++;
+        }
+
+        if(CountEachFrame > 150){
             HandSigns->DrawWinner(CheckWhoWins(playerMoveIndex, EnemyMoveIndex));
             HandSigns->DrawTrophy();
         }
@@ -60,7 +64,6 @@ int main()
     };
 
     UnloadTexture(background);
-    CloseWindow();
 
     return 0;
 }
