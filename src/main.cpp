@@ -13,6 +13,8 @@ void drawPlayerMoveAnimation(int &playerMoveIndex, Animation& HandSigns);
 void drawEnemyMoveAnimation(int &EnemyMoveIndex, AnimationEnemy& HandSignsEnemy);
 int CheckWhoWins(int &playerMoveIndex, int &EnemyMoveIndex);
 void PrintBlankSpaces(int lines);
+bool PlayerWantsToPlayAgain();
+bool RunGameLoop();
 
 int *countDown = new int(4);
 std::string CountDownText;
@@ -23,47 +25,12 @@ int main()
     InitWindow(800, 600, "Rock Paper Scissors - Raylib C++ Edition");
     SetTargetFPS(60);
 
-    Texture background = LoadTexture("assets/background.png");
-    std::unique_ptr<Animation> HandSigns = std::make_unique<Animation>();
-    std::unique_ptr<AnimationEnemy> HandSignsEnemy = std::make_unique<AnimationEnemy>();
-    std::unique_ptr<player> Player = std::make_unique<player>();
-    std::unique_ptr<cpuEnemy> CpuEnemy = std::make_unique<cpuEnemy>();
-
-    PrintBlankSpaces(10);
-    Player->playerInput();
-    int playerMoveIndex = Player->getMoveIndex();
-    int EnemyMoveIndex = CpuEnemy->generateRandomMoveIndex();
-
-    while (!WindowShouldClose())
-    {
-        if (CountEachFrame > 400) {
-            CloseWindow();   // close window
-        }
-
-        MakeThreadSleepAndCountDown();
-        updateCountDownText();
-
-        BeginDrawing();
-        ClearBackground(BLACK);
-        DrawTexture(background, 0, 0, WHITE);
-
-        DrawCountDownText();
-
-        if(countDown == nullptr){
-            drawPlayerMoveAnimation(playerMoveIndex, *HandSigns);
-            drawEnemyMoveAnimation(EnemyMoveIndex, *HandSignsEnemy);
-            CountEachFrame++;
-        }
-
-        if(CountEachFrame > 150){
-            HandSigns->DrawWinner(CheckWhoWins(playerMoveIndex, EnemyMoveIndex));
-            HandSigns->DrawTrophy();
-        }
-
-        EndDrawing();
-    };
-
-    UnloadTexture(background);
+    do{
+        if(!RunGameLoop())
+            break;
+    }
+    while (RunGameLoop());
+    CloseWindow();
 
     return 0;
 }
@@ -161,3 +128,59 @@ void PrintBlankSpaces(int lines){
     }
 };
 
+bool PlayerWantsToPlayAgain() {
+    char choice;
+    std::cout << "Do you want to play again? (y/n): ";
+    std::cin >> choice;
+    return (choice == 'y' || choice == 'Y');
+};
+
+bool RunGameLoop(){
+
+    Texture background = LoadTexture("assets/background.png");
+    std::unique_ptr<Animation> HandSigns = std::make_unique<Animation>();
+    std::unique_ptr<AnimationEnemy> HandSignsEnemy = std::make_unique<AnimationEnemy>();
+    std::unique_ptr<player> Player = std::make_unique<player>();
+    std::unique_ptr<cpuEnemy> CpuEnemy = std::make_unique<cpuEnemy>();
+
+    PrintBlankSpaces(50);
+    Player->playerInput();
+    int playerMoveIndex = Player->getMoveIndex();
+    int EnemyMoveIndex = CpuEnemy->generateRandomMoveIndex();
+
+    while (!WindowShouldClose())
+    {
+        if (CountEachFrame > 400) {
+            countDown = new int(4);
+            CountEachFrame = 0;
+            break;   
+        }
+
+        MakeThreadSleepAndCountDown();
+        updateCountDownText();
+
+        BeginDrawing();
+        ClearBackground(BLACK);
+        DrawTexture(background, 0, 0, WHITE);
+
+        DrawCountDownText();
+
+        if(countDown == nullptr){
+            drawPlayerMoveAnimation(playerMoveIndex, *HandSigns);
+            drawEnemyMoveAnimation(EnemyMoveIndex, *HandSignsEnemy);
+            CountEachFrame++;
+        }
+
+        if(CountEachFrame > 150){
+            HandSigns->DrawWinner(CheckWhoWins(playerMoveIndex, EnemyMoveIndex));
+            HandSigns->DrawTrophy();
+        }
+
+        EndDrawing();
+    };
+    UnloadTexture(background);
+    CloseWindow();
+
+    PrintBlankSpaces(50);
+    return PlayerWantsToPlayAgain();
+};

@@ -13,7 +13,7 @@ int cpuEnemy::generateRandomMoveIndex(){
     std::uniform_int_distribution<> distr(1, 3);
 
     int randomIndex = distr(gen);
-    if (randomIndex != AllowedMoves::Rock || randomIndex != AllowedMoves::Paper || randomIndex != AllowedMoves::Scissors){
+    if (randomIndex < 1 || randomIndex > 3) {
         std::cerr << "Generated invalid move index: " << randomIndex << std::endl;
     }
     return randomIndex;
