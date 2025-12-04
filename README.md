@@ -62,7 +62,7 @@ This project is a **Rock Paper Scissors** game implemented in C++ using the **Ra
      ```bash
      ./mainApp
 4. **Play the Game**:
-  -Follow the on-screen instructions to play the game.
+  - Follow the on-screen instructions to play the game.
 
 ## Key Features:
 - **Interactive Animations**: 
