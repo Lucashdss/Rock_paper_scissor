@@ -34,11 +34,11 @@ void player::playerInput(){
     
     std::transform(input.begin(), input.end(), input.begin(), ::tolower);
 
-    if (input == "rock"){
+    if (input == "rock" || input == "r"){
         setMoveIndexToRock();
-    } else if (input == "paper"){
+    } else if (input == "paper" || input == "p"){
         setMoveIndexToPaper();
-    } else if (input == "scissors"){
+    } else if (input == "scissors" || input == "s"){
         setMoveIndexToScissors();
     } else {
         std::cout << "invalid move. please try again." << std::endl;
