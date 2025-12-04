@@ -79,14 +79,6 @@ void GameLogic::drawEnemyMoveAnimation(int &EnemyMoveIndex, AnimationEnemy& Hand
 
 int GameLogic::CheckWhoWins(int &player1, int &player2){
     int result = (3 + player1 - player2) % 3;
-
-    if (result == 0)
-        std::cout << "Draw!\n";
-    else if (result == 1)
-        std::cout << "Player 1 wins!\n";
-    else
-        std::cout << "Player 2 wins!\n";
-
     return result;
 };
 
