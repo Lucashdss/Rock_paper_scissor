@@ -4,19 +4,12 @@
 #include <vector>
 
 AnimationEnemy::AnimationEnemy(): Animation(){
-    int AnimationFrame = 0;
-    RockGifImage = LoadImageAnim("assets/rock.gif", &AnimationFrame);
-    PaperGifImage = LoadImageAnim("assets/paper.gif", &AnimationFrame);
-    ScissorsGifImage = LoadImageAnim("assets/scissors.gif", &AnimationFrame);
 }
 
 AnimationEnemy::~AnimationEnemy() {
-    UnloadImage(RockGifImage);
-    UnloadImage(PaperGifImage);
-    UnloadImage(ScissorsGifImage);
 }
 
-Texture2D AnimationEnemy::DrawRockAnimation() const {
+Texture2D AnimationEnemy::DrawRockAnimation(bool reset) const {
     static Texture2D RockTexture = LoadTextureFromImage(RockGifImage);
 
     const int AnimationFrame = 99;
@@ -25,6 +18,13 @@ Texture2D AnimationEnemy::DrawRockAnimation() const {
     static int FrameCounter = 0;
     static unsigned int NextFrameDataOffset = 0;
     static bool firstUpdate = true;
+
+    if (reset){
+    CurrentFrame = 20;
+    FrameCounter = 0;
+    NextFrameDataOffset = 0;
+    firstUpdate = true;
+    }
     
     if (firstUpdate) {
         unsigned int offset = RockGifImage.width * RockGifImage.height * 4 * CurrentFrame;
@@ -51,7 +51,7 @@ Texture2D AnimationEnemy::DrawRockAnimation() const {
     return RockTexture;
 }
 
-Texture2D AnimationEnemy::DrawPaperAnimation() const {
+Texture2D AnimationEnemy::DrawPaperAnimation(bool reset) const {
     static Texture2D PaperTexture = LoadTextureFromImage(PaperGifImage);
 
     const int AnimationFrame = 99;
@@ -60,6 +60,13 @@ Texture2D AnimationEnemy::DrawPaperAnimation() const {
     static int FrameCounter = 0;
     static unsigned int NextFrameDataOffset = 0;
     static bool firstUpdate = true;
+
+    if (reset){
+    CurrentFrame = 20;
+    FrameCounter = 0;
+    NextFrameDataOffset = 0;
+    firstUpdate = true;
+    }
     
     if (firstUpdate) {
         unsigned int offset = PaperGifImage.width * PaperGifImage.height * 4 * CurrentFrame;
@@ -86,7 +93,7 @@ Texture2D AnimationEnemy::DrawPaperAnimation() const {
     return PaperTexture;
 }
 
-Texture2D AnimationEnemy::DrawScissorsAnimation() const {
+Texture2D AnimationEnemy::DrawScissorsAnimation(bool reset) const {
     static Texture2D ScissorsTexture = LoadTextureFromImage(ScissorsGifImage);
 
     const int AnimationFrame = 78;
@@ -95,6 +102,13 @@ Texture2D AnimationEnemy::DrawScissorsAnimation() const {
     static int FrameCounter = 0;
     static unsigned int NextFrameDataOffset = 0;
     static bool firstUpdate = true;
+
+    if (reset){
+    CurrentFrame = 20;
+    FrameCounter = 0;
+    NextFrameDataOffset = 0;
+    firstUpdate = true;
+    }
     
     if (firstUpdate) {
         unsigned int offset = ScissorsGifImage.width * ScissorsGifImage.height * 4 * CurrentFrame;
@@ -119,4 +133,16 @@ Texture2D AnimationEnemy::DrawScissorsAnimation() const {
     }
 
     return ScissorsTexture;
+}
+
+void AnimationEnemy::ResetAnimationFrames(int &EnemyMove) const {
+    if (EnemyMove == 1){
+        DrawRockAnimation(true);
+    }
+    else if (EnemyMove == 2){
+        DrawPaperAnimation(true);
+    }
+    else if (EnemyMove == 3){
+        DrawScissorsAnimation(true);
+    }
 }

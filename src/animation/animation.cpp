@@ -27,7 +27,7 @@ std::vector<Image>Animation::getTextures() const{
     return textures;
 }
 
-Texture2D Animation::DrawRockAnimation() const {
+Texture2D Animation::DrawRockAnimation(bool reset) const {
     static Texture2D RockTexture = LoadTextureFromImage(RockGifImage);
 
     const int AnimationFrame = 99;
@@ -37,6 +37,13 @@ Texture2D Animation::DrawRockAnimation() const {
     static unsigned int NextFrameDataOffset = 0;
     static bool firstUpdate = true;
     
+    if (reset){
+        CurrentFrame = 20;
+        FrameCounter = 0;
+        NextFrameDataOffset = 0;
+        firstUpdate = true;
+    }
+
     if (firstUpdate) {
         unsigned int offset = RockGifImage.width * RockGifImage.height * 4 * CurrentFrame;
         UpdateTexture(RockTexture, ((unsigned char*)RockGifImage.data) + offset);
@@ -62,7 +69,7 @@ Texture2D Animation::DrawRockAnimation() const {
     return RockTexture;
 }
 
-Texture2D Animation::DrawPaperAnimation() const {
+Texture2D Animation::DrawPaperAnimation(bool reset) const {
     static Texture2D PaperTexture = LoadTextureFromImage(PaperGifImage);
 
     const int AnimationFrame = 99;
@@ -71,6 +78,13 @@ Texture2D Animation::DrawPaperAnimation() const {
     static int FrameCounter = 0;
     static unsigned int NextFrameDataOffset = 0;
     static bool firstUpdate = true;
+
+    if (reset){
+    CurrentFrame = 20;
+    FrameCounter = 0;
+    NextFrameDataOffset = 0;
+    firstUpdate = true;
+    }
     
     if (firstUpdate) {
         unsigned int offset = PaperGifImage.width * PaperGifImage.height * 4 * CurrentFrame;
@@ -97,7 +111,7 @@ Texture2D Animation::DrawPaperAnimation() const {
     return PaperTexture;
 }
 
-Texture2D Animation::DrawScissorsAnimation() const {
+Texture2D Animation::DrawScissorsAnimation(bool reset) const {
     static Texture2D ScissorsTexture = LoadTextureFromImage(ScissorsGifImage);
 
     const int AnimationFrame = 78;
@@ -106,6 +120,13 @@ Texture2D Animation::DrawScissorsAnimation() const {
     static int FrameCounter = 0;
     static unsigned int NextFrameDataOffset = 0;
     static bool firstUpdate = true;
+
+    if (reset){
+    CurrentFrame = 20;
+    FrameCounter = 0;
+    NextFrameDataOffset = 0;
+    firstUpdate = true;
+    }
     
     if (firstUpdate) {
         unsigned int offset = ScissorsGifImage.width * ScissorsGifImage.height * 4 * CurrentFrame;
@@ -139,11 +160,13 @@ void Animation::DrawWinner(int winner) const{
         winnerText = "Player Wins!";
         int textWidth = MeasureText(winnerText.c_str(), fontSizeWinner);
         DrawText(winnerText.c_str(), (800 - textWidth) / 2, 50, fontSizeWinner, GREEN);
+        DrawTrophy();
     }
     else if (winner == 2){
         winnerText = "Computer Wins!";
         int textWidth = MeasureText(winnerText.c_str(), fontSizeWinner);
         DrawText(winnerText.c_str(), (800 - textWidth) / 2, 50, fontSizeWinner, RED);
+        DrawTrophy();
     }
     else{
         winnerText = "It's a Tie!";
@@ -158,3 +181,15 @@ void Animation::DrawTrophy() const{
     Texture2D TrophyTexture = LoadTextureFromImage(TrophyImage);
     DrawTexture(TrophyTexture, 350, 100, WHITE);
 };
+
+void Animation::ResetAnimationFrames(int &PlayerMove) const{
+    if (PlayerMove == 1){
+        DrawRockAnimation(true);
+    }
+    else if (PlayerMove == 2){
+        DrawPaperAnimation(true);
+    }
+    else if (PlayerMove == 3){
+        DrawScissorsAnimation(true);
+    }
+}

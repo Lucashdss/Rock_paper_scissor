@@ -7,15 +7,11 @@ using namespace std;
 
 class AnimationEnemy : public Animation
 {
-private:
-    int AnimationFrame;
-    Image RockGifImage;
-    Image PaperGifImage;
-    Image ScissorsGifImage;
 public:
     AnimationEnemy();
     virtual ~AnimationEnemy();
-    virtual Texture2D DrawRockAnimation() const override;
-    virtual Texture2D DrawPaperAnimation() const override;
-    virtual Texture2D DrawScissorsAnimation() const override;  
+    virtual Texture2D DrawRockAnimation(bool reset=false) const override;
+    virtual Texture2D DrawPaperAnimation(bool reset=false) const override;
+    virtual Texture2D DrawScissorsAnimation(bool reset=false) const override;
+    virtual void ResetAnimationFrames(int &EnemyMove) const override;  
 };

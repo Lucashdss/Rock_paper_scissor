@@ -13,13 +13,13 @@ add_library(gameLib
     src/player/cpuEnemy/cpuEnemy.cpp
     src/animation/animation.cpp
     src/animation/animationEnemy.cpp
+    src/gameLogic/gameLogic.cpp
 )
 
 target_include_directories(gameLib PUBLIC
-    src/player
-    src/player/cpuEnemy
-    src/animation
+    ${CMAKE_SOURCE_DIR}/src
 )
+
 #---------------------------------------------
 
 # Test executable
